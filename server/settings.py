@@ -25,7 +25,7 @@ SECRET_KEY = ')7j0pe$h&ee^-_3o0a5&7s@yquzu^--ajd^(4_30dvucrca9xt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://localhost:8000', "http://www.smart-gardening.kro.kr", "http://138.91.37.37"]
 
 
 # Application definition
@@ -62,7 +62,9 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "http://127.0.0.1:3000"
+    "http://127.0.0.1:3000",
+    "http://www.smart-gardening.kro.kr",
+    "http://138.91.37.37",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
