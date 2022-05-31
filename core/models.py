@@ -5,6 +5,7 @@ from django.db import models
 
 class Status(models.Model):
     profile = models.ForeignKey('accounts.Profile', on_delete=models.CASCADE)
+    illuminance = models.FloatField()
     temperature = models.FloatField()
     humidity = models.FloatField()
     co2 = models.IntegerField()
