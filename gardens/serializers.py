@@ -18,3 +18,9 @@ class DiaryListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Diary
         fields = '__all__'
+
+
+class DiaryCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Diary
+        fields = ['image', 'title', 'description']
