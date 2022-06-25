@@ -11,7 +11,6 @@ from .paginations import FlowerPageNumberPagination
 class FlowerListAPIView(ListAPIView):
     permission_classes = [AllowAny]
     serializer_class = FlowerListSerializer
-    pagination_class = FlowerPageNumberPagination
 
     def get_queryset(self):
         word = self.request.query_params.get('word')
