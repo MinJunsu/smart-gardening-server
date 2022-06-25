@@ -30,3 +30,9 @@ class GardenUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Garden
         fields = ['humidity']
+
+
+class GardenLightUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Garden
+        fields = ['is_turn_on']
