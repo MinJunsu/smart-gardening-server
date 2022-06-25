@@ -1,10 +1,18 @@
-from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 from .models import Garden, Diary
-from .serializers import GardenListSerializer, GardenDetailSerializer, DiaryListSerializer, DiaryCreateSerializer
+from .serializers import GardenUpdateSerializer, GardenListSerializer, GardenDetailSerializer, DiaryListSerializer, DiaryCreateSerializer
 
 
 # Create your views here.
+class GardenHumidityUpdateView(UpdateAPIView):
+    queryset = Garden.objects.all()
+    serializer_class = GardenUpdateSerializer
+
+    def get_object(self):
+        return self.queryset.get(profile_id=self.kwargs.get('pk'))
+
+
 class GardenListAPIView(ListAPIView):
     queryset = Garden.objects.all()
     serializer_class = GardenListSerializer

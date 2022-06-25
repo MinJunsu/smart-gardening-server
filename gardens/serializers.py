@@ -24,3 +24,9 @@ class DiaryCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Diary
         fields = ['image', 'title', 'description']
+
+
+class GardenUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Garden
+        fields = ['humidity']
