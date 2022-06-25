@@ -10,7 +10,8 @@ class GardenHumidityUpdateView(UpdateAPIView):
     serializer_class = GardenUpdateSerializer
 
     def get_object(self):
-        return self.queryset.get(profile_id=self.kwargs.get('pk'))
+        print(self.kwargs)
+        return self.queryset.get(profile_id=self.kwargs.get('pk'), section=self.kwargs.get('section'))
 
 
 class GardenListAPIView(ListAPIView):
