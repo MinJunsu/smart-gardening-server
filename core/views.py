@@ -23,7 +23,7 @@ class CommandCreateListAPIView(ListCreateAPIView):
     serializer_class = CommandCreateSerializer
 
     def get_object(self):
-        return self.queryset.get(profile_id=self.kwargs.get('pk'))
+        return self.queryset.filter(profile_id=self.kwargs.get('pk'), is_done=False)
 
     def perform_create(self, serializer):
         serializer.save(profile_id=self.kwargs.get('pk'))
