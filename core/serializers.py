@@ -5,7 +5,7 @@ from .models import Status, Command
 class StatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = Status
-        fields = ['temperature', 'humidity', 'co2']
+        fields = ['temperature', 'humidity', 'illuminance']
 
 
 class StatusUpdateSerializer(serializers.ModelSerializer):
@@ -23,6 +23,7 @@ class StatusUpdateSerializer(serializers.ModelSerializer):
 
 class CommandCreateSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
+    location = serializers.CharField(read_only=True)
 
     class Meta:
         model = Command
