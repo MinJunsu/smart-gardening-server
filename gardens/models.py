@@ -13,6 +13,8 @@ class Garden(models.Model):
     humidity = models.FloatField()
     watering_time = models.DateTimeField()
     is_turn_on = models.BooleanField()
+    is_water = models.BooleanField(default=False)
+    is_temi_ready = models.BooleanField(default=False)
 
     def is_water(self):
         return datetime.now() - self.watering_time > timedelta(days=self.period)

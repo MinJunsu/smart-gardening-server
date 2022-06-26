@@ -41,4 +41,4 @@ class GardenLightUpdateSerializer(serializers.ModelSerializer):
 class GardenWaterUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Garden
-        fields = ['is_water']
+        fields = ['is_water', 'is_temi_ready']
