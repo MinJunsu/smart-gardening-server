@@ -2,6 +2,7 @@ from rest_framework.response import Response
 from rest_framework.generics import RetrieveAPIView, UpdateAPIView, ListCreateAPIView, RetrieveUpdateAPIView
 from rest_framework.views import APIView
 from .models import Status, Command
+from gardens.models import Garden
 from .serializers import StatusSerializer, StatusUpdateSerializer, CommandCreateSerializer, CommandRetrieveUpdateSerializer
 
 
@@ -20,11 +21,11 @@ class StatusUpdateAPIView(RetrieveUpdateAPIView):
 
 
 class CommandCreateListAPIView(ListCreateAPIView):
-    queryset = Command.objects.all()
+    queryset = Command.objects.filter(is_done=False)
     serializer_class = CommandCreateSerializer
 
     def get_object(self):
-        return self.queryset.filter(profile_id=self.kwargs.get('pk'), is_done=False)
+        return self.queryset.filter(profile_id=self.kwargs.get('pk'))
 
     def perform_create(self, serializer):
         serializer.save(profile_id=self.kwargs.get('pk'))
@@ -47,3 +48,13 @@ class FinishCommandAPIView(APIView):
         serializer = CommandCreateSerializer(queryset)
         return Response(serializer.data)
 
+
+class FinishWaterCommandAPIView(APIView):
+
+    def post(self, request, pk):
+        queryset = Command.objects.get(pk=pk)
+        garden = Garden.objects.get(profile_id=1, section=int(queryset.location))
+        garden.is_temi_ready = 1
+        garden.save()
+        serializer = CommandCreateSerializer(queryset)
+        return Response(serializer.data)
