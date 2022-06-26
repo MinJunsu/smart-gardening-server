@@ -12,9 +12,9 @@ class Garden(models.Model):
     period = models.IntegerField()
     humidity = models.FloatField()
     watering_time = models.DateTimeField()
-    is_turn_on = models.BooleanField()
-    is_water = models.BooleanField(default=False)
-    is_temi_ready = models.BooleanField(default=False)
+    is_turn_on = models.IntegerField(default=0)
+    is_water = models.IntegerField(default=0)
+    is_temi_ready = models.IntegerField(default=0)
 
 
 class Diary(models.Model):
