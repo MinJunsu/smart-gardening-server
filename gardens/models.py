@@ -16,9 +16,6 @@ class Garden(models.Model):
     is_water = models.BooleanField(default=False)
     is_temi_ready = models.BooleanField(default=False)
 
-    def is_water(self):
-        return datetime.now() - self.watering_time > timedelta(days=self.period)
-
 
 class Diary(models.Model):
     garden = models.ForeignKey('gardens.Garden', on_delete=models.CASCADE)
