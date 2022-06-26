@@ -25,6 +25,9 @@ class CommandCreateListAPIView(ListCreateAPIView):
     def get_object(self):
         return self.queryset.get(profile_id=self.kwargs.get('pk'))
 
+    def perform_create(self, serializer):
+        serializer.save(profile_id=self.kwargs.get('pk'))
+
 
 class CommandRetrieveUpdateAPIViewView(RetrieveUpdateAPIView):
     queryset = Command.objects.all()
