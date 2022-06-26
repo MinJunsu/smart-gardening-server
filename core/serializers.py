@@ -24,7 +24,7 @@ class StatusUpdateSerializer(serializers.ModelSerializer):
 class CommandCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Command
-        fields = ['profile_id', 'location', 'command', 'is_done']
+        fields = ['profile_id', 'location', 'command', 'command_kor', 'is_done']
 
 
 class CommandRetrieveUpdateSerializer(serializers.ModelSerializer):

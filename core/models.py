@@ -19,4 +19,5 @@ class Command(models.Model):
     profile = models.ForeignKey('accounts.Profile', on_delete=models.CASCADE)
     location = models.CharField(max_length=10)
     command = models.CharField(max_length=100)
+    command_kor = models.CharField(max_length=200)
     is_done = models.BooleanField(default=False)
