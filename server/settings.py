@@ -67,6 +67,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://138.91.37.37",
     "http://www.smart-gardening.kro.kr:3000",
     "http://138.91.37.37:3000",
+    "http://www.cashup.iptime.org:3000",
+    "http://cashup.iptime.org"
 ]
 CORS_ALLOW_CREDENTIALS = True
 
