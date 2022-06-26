@@ -27,7 +27,7 @@ class GardenLightUpdateView(RetrieveUpdateAPIView):
     serializer_class = GardenLightUpdateSerializer
 
     def get_object(self):
-        return self.queryset.get(profile_id=self.kwargs.get('pk'), section=self.kwargs.get('section'))
+        return self.queryset.get(profile_id=self.kwargs.get('pk'), section=1)
 
 
 class GardenListAPIView(ListAPIView):
