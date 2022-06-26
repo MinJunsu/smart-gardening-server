@@ -21,6 +21,10 @@ class DiaryListSerializer(serializers.ModelSerializer):
 
 
 class DiaryCreateSerializer(serializers.ModelSerializer):
+    image = serializers.ImageField(
+        max_length=None, use_url=True,
+    )
+
     class Meta:
         model = Diary
         fields = ['image', 'title', 'description']
