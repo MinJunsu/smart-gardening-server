@@ -60,16 +60,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://www.smart-gardening.kro.kr",
-    "http://138.91.37.37",
-    "http://www.smart-gardening.kro.kr:3000",
-    "http://138.91.37.37:3000",
-    "http://cashup.iptime.org:3000",
-    "http://cashup.iptime.org"
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+#     "http://127.0.0.1:3000",
+#     "http://www.smart-gardening.kro.kr",
+#     "http://138.91.37.37",
+#     "http://www.smart-gardening.kro.kr:3000",
+#     "http://138.91.37.37:3000",
+#     "http://cashup.iptime.org:3000",
+#     "http://cashup.iptime.org"
+# ]
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'server.urls'
