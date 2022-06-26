@@ -13,3 +13,10 @@ class Status(models.Model):
 
 class Comment(models.Model):
     pass
+
+
+class Command(models.Model):
+    profile = models.ForeignKey('accounts.Profile', on_delete=models.CASCADE)
+    location = models.CharField(max_length=10)
+    command = models.CharField(max_length=100)
+    is_done = models.BooleanField(default=False)
