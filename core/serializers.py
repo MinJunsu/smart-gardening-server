@@ -23,7 +23,6 @@ class StatusUpdateSerializer(serializers.ModelSerializer):
 
 class CommandCreateSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
-    location = serializers.CharField(read_only=True)
 
     class Meta:
         model = Command

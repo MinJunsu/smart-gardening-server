@@ -1,5 +1,5 @@
 from rest_framework.response import Response
-from rest_framework.generics import RetrieveAPIView, UpdateAPIView, ListCreateAPIView, RetrieveUpdateAPIView
+from rest_framework.generics import RetrieveAPIView, ListAPIView, UpdateAPIView, ListCreateAPIView, RetrieveUpdateAPIView
 from rest_framework.views import APIView
 from .models import Status, Command
 from gardens.models import Garden
@@ -28,10 +28,7 @@ class CommandCreateListAPIView(ListCreateAPIView):
         return self.queryset.filter(profile_id=self.kwargs.get('pk'))
 
     def perform_create(self, serializer):
-        garden = Garden.objects.get(profile_id=self.kwargs.get('pk'), section=self.kwargs.get('section'))
-        garden.is_water = True
-        garden.save()
-        serializer.save(profile_id=self.kwargs.get('pk'), section=self.kwargs.get('section'))
+        serializer.save(profile_id=self.kwargs.get('pk'))
 
 
 class CommandRetrieveUpdateAPIViewView(RetrieveUpdateAPIView):
