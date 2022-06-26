@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from rest_framework.response import Response
 from rest_framework.generics import RetrieveAPIView, UpdateAPIView, ListCreateAPIView, RetrieveUpdateAPIView
+from rest_framework.views import APIView
 from .models import Status, Command
 from .serializers import StatusSerializer, StatusUpdateSerializer, CommandCreateSerializer, CommandRetrieveUpdateSerializer
 
@@ -10,7 +11,7 @@ class StatusAPIView(RetrieveAPIView):
     serializer_class = StatusSerializer
 
 
-class StatusUpdateAPIView(UpdateAPIView):
+class StatusUpdateAPIView(RetrieveUpdateAPIView):
     queryset = Status.objects.all()
     serializer_class = StatusUpdateSerializer
 
@@ -35,3 +36,14 @@ class CommandRetrieveUpdateAPIViewView(RetrieveUpdateAPIView):
 
     def get_object(self):
         return self.queryset.get(profile_id=self.kwargs.get('pk'))
+
+
+class FinishCommandAPIView(APIView):
+
+    def post(self, request, pk):
+        queryset = Command.objects.get(pk=pk)
+        queryset.is_done = True
+        queryset.save()
+        serializer = CommandCreateSerializer(queryset)
+        return Response(serializer.data)
+
