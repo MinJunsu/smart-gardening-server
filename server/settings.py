@@ -25,7 +25,7 @@ SECRET_KEY = ')7j0pe$h&ee^-_3o0a5&7s@yquzu^--ajd^(4_30dvucrca9xt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "www.smart-gardening.kro.kr", "138.91.37.37", "http://cashup.iptime.org:3000", "http://cashup.iptime.org"]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "www.smart-gardening.kro.kr", "138.91.37.37", "http://www.cashup.iptime.org:3000", "http://cashup.iptime.org"]
 
 
 # Application definition

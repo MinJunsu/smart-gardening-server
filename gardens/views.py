@@ -50,3 +50,6 @@ class GardenDiaryListAPIView(ListAPIView):
 class DiaryCreateAPIView(CreateAPIView):
     serializer_class = DiaryCreateSerializer
     queryset = Diary.objects.all()
+
+    def perform_create(self, serializer):
+        return serializer.save(garden_id=self.kwargs.get('pk'))
