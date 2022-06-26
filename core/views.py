@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.generics import RetrieveAPIView, UpdateAPIView, CreateAPIView, RetrieveUpdateAPIView
+from rest_framework.generics import RetrieveAPIView, UpdateAPIView, ListCreateAPIView, RetrieveUpdateAPIView
 from .models import Status, Command
 from .serializers import StatusSerializer, StatusUpdateSerializer, CommandCreateSerializer, CommandRetrieveUpdateSerializer
 
@@ -18,7 +18,7 @@ class StatusUpdateAPIView(UpdateAPIView):
         return self.queryset.get(profile_id=self.kwargs.get('pk'))
 
 
-class CommandCreateAPIView(CreateAPIView):
+class CommandCreateListAPIView(ListCreateAPIView):
     queryset = Command.objects.all()
     serializer_class = CommandCreateSerializer
 
