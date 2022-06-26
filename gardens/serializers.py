@@ -36,3 +36,9 @@ class GardenLightUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Garden
         fields = ['is_turn_on']
+
+
+class GardenWaterUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Garden
+        fields = ['is_water']
