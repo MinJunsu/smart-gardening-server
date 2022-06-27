@@ -70,7 +70,9 @@ MIDDLEWARE = [
 #     "http://cashup.iptime.org:3000",
 #     "http://cashup.iptime.org"
 # ]
+
 CORS_ORIGIN_ALLOW_ALL = True
+
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'server.urls'
