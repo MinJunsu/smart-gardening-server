@@ -28,7 +28,7 @@ class CommandCreateListAPIView(ListCreateAPIView):
         return self.queryset.filter(profile_id=self.kwargs.get('pk'))
 
     def perform_create(self, serializer):
-        garden = Garden.objects.get(pk=1)
+        garden = Garden.objects.get(pk=3)
         garden.is_water = 1
         garden.save()
         return serializer.save(profile_id=self.kwargs.get('pk'))
