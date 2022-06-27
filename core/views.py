@@ -60,3 +60,15 @@ class FinishWaterCommandAPIView(APIView):
         garden.save()
         serializer = CommandCreateSerializer(queryset)
         return Response(serializer.data)
+
+
+class CreateWaterCommandAPIView(APIView):
+    def post(self, request, pk):
+        command = Command.objects.create(
+            location=str(pk),
+            command='water',
+            command_kor=f'물주기를 완료하였습니다.',
+            is_done=False
+        )
+        serializer = CommandCreateSerializer(command)
+        return Response(serializer.data)
