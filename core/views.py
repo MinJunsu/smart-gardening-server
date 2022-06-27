@@ -56,7 +56,7 @@ class FinishWaterCommandAPIView(APIView):
 
     def post(self, request, pk):
         queryset = Command.objects.get(pk=pk)
-        garden = Garden.objects.get(profile_id=1, section=int(queryset.location))
+        garden = Garden.objects.get(profile_id=1, section=2)
         garden.is_temi_ready = 1
         garden.save()
         serializer = CommandCreateSerializer(queryset)
