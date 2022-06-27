@@ -70,5 +70,8 @@ class CreateWaterCommandAPIView(APIView):
             command_kor=f'물주기를 완료하였습니다.',
             is_done=False
         )
+        garden = Garden.objects.get(profile_id=1, section=2)
+        garden.is_temi_ready = 1
+        garden.save()
         serializer = CommandCreateSerializer(command)
         return Response(serializer.data)
