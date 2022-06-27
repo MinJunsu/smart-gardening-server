@@ -28,7 +28,7 @@ class CommandCreateListAPIView(ListCreateAPIView):
         return self.queryset.filter(profile_id=self.kwargs.get('pk'))
 
     def perform_create(self, serializer):
-        garden = Garden.objects.get(pk=2)
+        garden = Garden.objects.get(pk=1)
         garden.is_water = 1
         garden.save()
         return serializer.save(profile_id=self.kwargs.get('pk'))
@@ -43,7 +43,6 @@ class CommandRetrieveUpdateAPIViewView(RetrieveUpdateAPIView):
 
 
 class FinishCommandAPIView(APIView):
-
     def post(self, request, pk):
         queryset = Command.objects.get(pk=pk)
         queryset.is_done = True
@@ -53,7 +52,6 @@ class FinishCommandAPIView(APIView):
 
 
 class FinishWaterCommandAPIView(APIView):
-
     def post(self, request, pk):
         queryset = Command.objects.get(pk=pk)
         garden = Garden.objects.get(profile_id=1, section=2)
