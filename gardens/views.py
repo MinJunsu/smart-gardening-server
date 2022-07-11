@@ -42,7 +42,7 @@ class GardenRetrieveAPIView(RetrieveAPIView):
 
 
 class GardenDiaryListAPIView(ListAPIView):
-    queryset = Diary.objects.all()
+    queryset = Diary.objects.all().order_by('created_at')
     serializer_class = DiaryListSerializer
     lookup_field = ['garden']
 
