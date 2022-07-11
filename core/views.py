@@ -29,7 +29,7 @@ class CommandCreateListAPIView(ListCreateAPIView):
 
     def perform_create(self, serializer):
         if serializer.validated_data['command'] == 'water':
-            garden = Garden.objects.get(pk=3)
+            garden = Garden.objects.get(section=2, profile_id=1)
             garden.is_water = 1
             garden.save()
         return serializer.save(profile_id=self.kwargs.get('pk'))
@@ -71,7 +71,7 @@ class CreateWaterCommandAPIView(APIView):
             is_done=False
         )
         garden = Garden.objects.get(profile_id=1, section=2)
-        garden.is_temi_ready = 1
+        garden.is_water = 1
         garden.save()
         serializer = CommandCreateSerializer(command)
         return Response(serializer.data)
